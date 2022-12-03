@@ -155,9 +155,17 @@ form button {
     padding: 25px;
     font-family: 'Libre Bodoni',serif;
     box-shadow: 0 0 5px 5px antiquewhite;
+    font-size: 1.2rem;
 }
 
 .read h2, .unread h2 {
     font-size: 2.5rem;
     font-weight: 500;
+}
+
+.books-read, .books-not-read {
+    display: grid;
+    grid-auto-flow:row;
+    row-gap: 12px;
+    color: rgba(0, 0, 0, 0.8);
 }
