@@ -44,46 +44,72 @@ function createBook() {
     let pages=document.getElementById('pages').value;
     let read=document.getElementById('read');
     if (read.checked) {
-        read='read';
+        read=true;
         switchRead=true;
     } else {
-        read='not read';
+        read=false;
         switchRead=false;
     }
     let newBook= new Book(title,author,pages,read);
+ 
     addBookToLibrary(newBook);
 }
 
 // function that runs through the library and sorts the books in the right category
-function assignLibrary() {
-    for (let book of myLibrary) {
-        console.log(book.read);
-        if (book.read==='read') {
-            myLibraryRead.push(book.info());
-        } else {
-            myLibraryUnread.push(book.info());
-        }
+// function assignLibrary() {
+//     for (let book of myLibrary) {
+//         console.log(book.read);
+//         if (book.read) {
+//             myLibraryRead.push(book.info());
+//         } else {
+//             myLibraryUnread.push(book.info());
+//         }
+//     }
+//     myLibrary=[];
+// }
+
+function checkboxBook (div) {
+    let checkbox= document.createElement('input');
+    checkbox.type="checkbox";
+    checkbox.name="read-or-not";
+    checkbox.id="read-or-not";
+
+    let label=document.createElement('label');
+    label.htmlFor="read-or-not";
+    div.appendChild(checkbox);
+    div.appendChild(label);
+    console.log('checkbox div.read '+div.read)
+    console.log('div ' +div)
+    if (switchRead) {
+        checkbox.checked=true;
+    } else {
+        checkbox.checked=false;
     }
-    myLibrary=[];
+}
+
+function checkOrNot() {
+    if (switchRead) {
+        let checkbox=document.getElementById()
+    }
 }
 
 // display the books in the correct category
 function displayBook() {
     let div = document.createElement('div');
-    if (switchRead) {
+    let divContent=myLibrary[0];
+    div.textContent=divContent.info();
+    myLibrary=[];
+    if (divContent.read) {
         booksRead.appendChild(div);
-        div.textContent=myLibraryRead;
-        myLibraryRead=[]
+        checkboxBook(div);
     } else {
         booksNotRead.appendChild(div);
-        div.textContent=myLibraryUnread;
-        myLibraryUnread=[];
+        checkboxBook(div);
     }
 }
 
 function sortBook() {
     createBook();
-    assignLibrary();
     displayBook();
 
 }
@@ -96,18 +122,31 @@ function clearForm() {
     title.value='';
     author.value='';
     pages.value='';
-    console.log(title,author,pages);
 }
 
 // Get the submit button
 let submitButton=document.querySelector('.submit');
 
-submitButton.addEventListener('click', sortBook);;
+submitButton.addEventListener('click', sortBook);
+let checkboxes;
 
 submitButton.addEventListener('click', function () {
     form.style.display='none';
     newBookButton.style.display='block';
     clearForm();
+    checkboxes = document.querySelectorAll('#read-or-not');
+    console.log(checkboxes[0].checked);
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function(e) {
+            
+            if(e.target.checked) {
+                console.log(e.target)
+            }
+        })
+      });
+    
+
 })
 
 submitButton.addEventListener('click', function () {
