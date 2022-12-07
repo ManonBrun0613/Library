@@ -44,10 +44,13 @@ function createBook() {
 
 
 Book.prototype.checkbox= function() {
+
     let checkbox= document.createElement('input');
+
     checkbox.type="checkbox";
     checkbox.name="read-or-not";
     checkbox.id="read-or-not";
+    
     if (this.read=='read.') {
         checkbox.checked=true;
     } else {
@@ -62,8 +65,8 @@ let listBook=document.querySelector('.list')
 // create array that stores all the checkboxes and their checked attributes
 let checkboxes=[];
 let checked=[];
-let cards=[];
-
+// let cards=[];
+let images=[];
 
 // Function that retrieves the list of checked and unchecked checkboxes
 function getCheckedState() {
@@ -122,8 +125,12 @@ Book.prototype.bookCard= function() {
 
     let bookDiv=document.createElement('div');
     bookDiv.classList.add('card');
+    let closeButton =document.createElement('img');
+    closeButton.src='./x.svg';
+    images.push(closeButton);
+
+    bookDiv.appendChild(closeButton);
     let bookTable=document.createElement('table');
-    // bookTable.classList.add('table');
 
     let bookTitle=document.createElement('tr');
     bookTitle.textContent=this.title;
@@ -204,3 +211,13 @@ submitButton.addEventListener('click', function () {
 });
 
 submitButton.addEventListener('click', getCheckboxes);
+submitButton.addEventListener('click',deleteCard);
+
+function deleteCard() {
+    cards=document.querySelectorAll('div.card');
+    for (let i=0;i<=images.length-1;i++) {
+        images[i].addEventListener('click', function() {
+        cards[i].style.display='none';
+        });
+    }
+}
