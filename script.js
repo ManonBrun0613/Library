@@ -31,20 +31,14 @@ function createBook() {
     let author=document.getElementById('author').value;
     let pages=document.getElementById('pages').value;
     let read=document.getElementById('read');
-    // let checkbox= document.createElement('input');
-    // checkbox.type="checkbox";
-    // checkbox.name="read-or-not";
-    // checkbox.id="read-or-not";
+    
     if (read.checked) {
         read='read.';
-    //     checkbox.checked=true;
     } else {
         read='not read.';
-    //     checkbox.checked=false;
     }
  
     let newBook= new Book(title,author,pages,read);
-    // newBook.checkbox=checkbox;
     addBookToLibrary(newBook);
 }
 
@@ -67,8 +61,8 @@ let listBook=document.querySelector('.list')
 
 // create array that stores all the checkboxes and their checked attributes
 let checkboxes=[];
-let checkNodeList;
 let checked=[];
+let cards=[];
 
 
 // Function that retrieves the list of checked and unchecked checkboxes
@@ -83,6 +77,18 @@ function getCheckedState() {
     };
 };
 
+function toggleClass() {
+    let cards=document.querySelectorAll('div.card');
+    for (let i=0;i<=cards.length-1;i++) {
+        if (checked[i]) {
+            cards[i].classList.remove('notread')
+            cards[i].classList.add('read');
+        } else {
+            cards[i].classList.remove('read');
+            cards[i].classList.add('notread');
+        }
+    }
+}
 // changes the read values depending on checked list
 function readValues() {
     let readValues=[];
@@ -106,6 +112,7 @@ function getCheckboxes(){
         checked.push(box.checked);
         box.addEventListener('change', getCheckedState);
         box.addEventListener('change',readValues);
+        box.addEventListener('change',toggleClass);
     };
 }
 
@@ -114,7 +121,7 @@ function getCheckboxes(){
 Book.prototype.bookCard= function() {
 
     let bookDiv=document.createElement('div');
-    // bookDiv.classList.add('card');
+    bookDiv.classList.add('card');
     let bookTable=document.createElement('table');
     // bookTable.classList.add('table');
 
@@ -132,7 +139,17 @@ Book.prototype.bookCard= function() {
 
     let bookRead=document.createElement('tr');
     bookRead.textContent=this.read;
+    console.log('this.read is '+this.read);
     bookRead.classList.add('read-or-not');
+
+    if (this.read=='read.') {
+        bookDiv.classList.add('read');
+        console.log('read.')
+    } else {
+        bookDiv.classList.add('notread');
+        console.log('not read.')
+
+    }
 
     let bookCheckboxRow=document.createElement('tr');
     this.checkbox();
