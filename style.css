@@ -1,10 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Mea+Culpa');
-@import url('https://fonts.googleapis.com/css?family=Libre+Bodoni');
+@import url('https://fonts.googleapis.com/css?family=La+Belle+Aurore');
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt');
 
 
 html {
     margin:0;
     font-size: 20px;
+    background-image: url('./monet.jpg');
+    background-size: cover;
 }
 
 .container  {
@@ -16,26 +18,28 @@ html {
 
 h1 {
     grid-area: 1/1/2/2;
-    font-family: 'Mea culpa', serif;
+    font-family: 'La Belle Aurore', serif;
     font-weight: 300;
-    font-size: 4rem;
+    font-size: 5rem;
+    color: #03655b;
 }
 
 .new-book {
     grid-area: 2/1/3/2;
     margin: 25px 0 50px;
     border-radius: 22px;
-    height:80px;
-    width:200px;
-    font-size: 1.4rem;
-    font-family: 'Libre Bodoni',serif;
-    background-color: rgb(38, 24, 8,1);
-    color: antiquewhite;
+    height:100px;
+    width:240px;
+    font-size: 1.2rem;
+    font-family: 'Rock Salt',serif;
+    background-color: rgb(239,144,138,1);
+    color:rgba(67,164,200,255);
     border: none;
+    font-weight: bold;
 }
 
 .new-book:hover {
-    background-color: rgb(38, 24, 8,0.8);
+    background-color: rgb(239,144,138,0.8);
 
 }
 
@@ -43,18 +47,18 @@ form {
     grid-area: 2/1/3/2;
     display: grid;
     grid-template: 2fr 2fr 1fr/ 1fr 1fr;
-    font-family: 'Libre Bodoni', serif;
+    font-family: 'La Belle Aurore', serif;
     column-gap: 25px;
-    font-size: 1.4rem
+    font-size: 2rem;
 }
 
 form input {
     border-radius: 35px;
     background-color: antiquewhite;
-    height: 45px;
-    width: 150px;
-    margin-top: -25px;
-    font-family: 'Libre Bodoni', serif;
+    height: 55px;
+    width: 170px;
+    margin-top: -55px;
+    font-family: 'Rock Salt', serif;
     font-size: 1.2rem;
 }
 
@@ -69,7 +73,7 @@ input[name="title"], input[name="author"] {
 	height: 40px;
 	cursor: pointer;
 	overflow: hidden;
-    margin-top: -26px;
+    margin-top: -55px;
     margin-left:150px;
 }
 
@@ -124,16 +128,18 @@ form button {
     grid-row: 3/4;
     font-size: 1.3rem;
     border-radius: 36px;
-    font-family: 'Libre Bodoni', serif;
-    height:50px;
-    background-color:  rgb(38, 24, 8,1);
-    color:antiquewhite;
+    font-family: 'Rock Salt', serif;
+    height:60px;
+    background-color:  rgb(239,144,138,1);
     border:none;
-    margin-top: -35px;
+    margin-top: -55px;
     width: 350px;
     justify-self: center;
 }
 
+form button:hover{
+    background-color: rgb(239,144,138,0.8);
+}
 .list {
     grid-area: 3/1/4/2;
     display: grid;
@@ -152,6 +158,7 @@ form button {
     width:220px;
     padding: 15px;
     height:250px;
+    font-family: 'La Belle Aurore',serif;
 }
 
 
@@ -161,37 +168,13 @@ form button {
 }
 
 .author {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
 .pages {
-    font-size:1.1rem;
+    font-size:1.3rem;
 }
 
 .read {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
-
-/* 
-.read, .unread {
-    border-radius: 30px;
-    background-color: antiquewhite;
-    width: 40vw;
-    margin:50px;
-    padding: 25px;
-    font-family: 'Libre Bodoni',serif;
-    box-shadow: 0 0 5px 5px antiquewhite;
-    font-size: 1.2rem;
-}
-
-.read h2, .unread h2 {
-    font-size: 2.5rem;
-    font-weight: 500;
-}
-
-.books-read, .books-not-read {
-    display: grid;
-    grid-auto-flow:row;
-    row-gap: 12px;
-    color: rgba(0, 0, 0, 0.8);
-} */
