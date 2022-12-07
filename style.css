@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css?family=Libre+Bodoni');
 
 
-
 html {
     margin:0;
     font-size: 20px;
@@ -58,10 +57,10 @@ form input {
     font-family: 'Libre Bodoni', serif;
     font-size: 1.2rem;
 }
+
 input[name="title"], input[name="author"] {
     width:500px;
 }
-
 
 .switch {
 	display: inline-block;
@@ -114,10 +113,6 @@ input[name="title"], input[name="author"] {
 	left: 34px;
 }
 
-
-
-
-
 form div {
     display: grid;
     grid-template: 1fr 1fr/1fr;
@@ -139,14 +134,45 @@ form button {
     justify-self: center;
 }
 
-.lists {
+.list {
     grid-area: 3/1/4/2;
     display: grid;
-    grid-template: 1fr/1fr 1fr;
-    justify-items: center
-
+    grid-template-columns:repeat(auto-fit, 200px);
+    grid-template-rows: 250px;
+    width: 90vw;
+    justify-items: center;
+    column-gap: 80px;
+    row-gap: 50px;
+    align-items: center;
 }
 
+.list div {
+    background-color: antiquewhite;
+    border-radius: 18px;
+    width:220px;
+    padding: 15px;
+    height:250px;
+}
+
+
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.author {
+    font-size: 1.3rem;
+}
+
+.pages {
+    font-size:1.1rem;
+}
+
+.read {
+    font-size: 1.1rem;
+}
+
+/* 
 .read, .unread {
     border-radius: 30px;
     background-color: antiquewhite;
@@ -168,4 +194,4 @@ form button {
     grid-auto-flow:row;
     row-gap: 12px;
     color: rgba(0, 0, 0, 0.8);
-}
+} */
