@@ -146,15 +146,12 @@ Book.prototype.bookCard= function() {
 
     let bookRead=document.createElement('tr');
     bookRead.textContent=this.read;
-    console.log('this.read is '+this.read);
     bookRead.classList.add('read-or-not');
 
     if (this.read=='read.') {
         bookDiv.classList.add('read');
-        console.log('read.')
     } else {
         bookDiv.classList.add('notread');
-        console.log('not read.')
 
     }
 
